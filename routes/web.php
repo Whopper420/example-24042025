@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +39,11 @@ Route::get('/about2', function () {
 Route::get('/post', function () {
     return view('post');
 });
+
+Route::get('/project', function () {
+    return view('project');
+});
+
+Route::get('/index', [CommentController::class, 'index']);
+Route::get('/index/create', [CommentController::class, 'create']);
+Route::post('/index', [CommentController::class, 'store']);
